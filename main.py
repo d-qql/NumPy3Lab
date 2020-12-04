@@ -13,10 +13,9 @@ U = np.array([N])
 l = U.size
 lx = np.arange(l)
 t = np.zeros(l)
-A = np.array([np.zeros(l)]*l)
-for i in range(l-1):
-    A[i][i] = A[i][i] + 1
-    A[i+1][i] = A[i+1][i] -1
+A = np.eye(U.size, U.size)
+for i in range(U.size):
+    A[i][i-1] = -1
 
 fig, ax = plt.subplots()
 ax.axis([0, 50, -2, 2])
